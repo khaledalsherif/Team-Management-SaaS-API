@@ -97,7 +97,7 @@ export const updateProject = catchAsync(async (req, res, next) => {
   if (!result.success) {
     return next(new AppError(JSON.stringify(result.error.issues), 400));
   }
-  console.log(result);
+
   const updateProjectTable = await prisma.project.update({
     where: {
       id_teamId: {

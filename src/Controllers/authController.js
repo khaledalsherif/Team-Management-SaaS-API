@@ -6,7 +6,6 @@ import { prisma } from '../../lib/prisma';
 import catchAsync from '../utils/catchAsync';
 import AppError from '../utils/appError';
 
-//Northwind => DB in w3school
 const signToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -51,11 +50,9 @@ export const signup = catchAsync(async (req, res, next) => {
     console.log(result.error.issues);
     return next(new AppError(JSON.stringify(result.error.issues), 400));
   }
-  //Now data is safe
 
   const passwordHashed = await bcrypt.hash(trimmed.password, 12);
 
-  //create user
   const user = await prisma.user.create({
     data: {
       email: trimmed.email,
