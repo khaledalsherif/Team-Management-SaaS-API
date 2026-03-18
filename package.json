@@ -1,0 +1,37 @@
+{
+  "name": "team-management-saas-api",
+  "version": "1.0.0",
+  "description": "\"Team management System.\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "tsx watch server.js",
+    "start:prod": "NODE_ENV=production tsx watch server.js"
+  },
+  "type": "module",
+  "author": "Khaled Alsherif",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.4.1",
+    "@prisma/client": "^7.4.1",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.14",
+    "pg": "^8.18.0",
+    "util": "^0.12.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.16.0",
+    "eslint": "^10.0.2",
+    "prisma": "^7.4.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
