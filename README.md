@@ -65,8 +65,13 @@ NODE_ENV=development
 ```bash
 npx prisma migrate dev
 ```
+### 5. BUILD CLIENT
 
-### 5. Start the Server
+```bash
+npx prisma generate
+```
+
+### 6. Start the Server
 
 ```bash
 npm start
