@@ -95,7 +95,6 @@ export const getTasks = catchAsync(async (req, res, next) => {
   });
 });
 export const getTask = catchAsync(async (req, res, next) => {
-  //The Owner and manager and the assignedTo user can get the task
   const { taskId, projectId } = req.params;
 
   const task = await prisma.task.findUnique({
@@ -109,11 +108,6 @@ export const getTask = catchAsync(async (req, res, next) => {
   });
 
   if (!task) return next(new AppError('Task not found!', 404));
-
-  //This condition in case we wouldn't need the other team members in the same project see the tasks that are not assignedTo him
-  // if (getRole(req) === 'MEMBER' && task.assignedToId !== req.user.id) {
-  //   return next(new AppError('You are not authorized to view this task', 403));
-  // }
 
   res.status(200).json({
     status: 'success',
